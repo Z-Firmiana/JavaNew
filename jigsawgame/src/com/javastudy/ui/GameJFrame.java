@@ -1,19 +1,61 @@
 package com.javastudy.ui;
 
 import javax.swing.*;
+import java.util.Random;
 
 public class GameJFrame extends JFrame {
     // 主界面
+
+    int[][] data = new int[4][4];
     public GameJFrame(){
         initJFrame();
 
         //菜单创建
         initJMenuBar();
+        
+        //初始化数据（打乱）
+        initdata();
+        //初始化图片
+        initImage();
 
     }
 
+    private void initdata() {
+        Random r = new Random();
+        int[] arr = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+        for (int i = 0; i < arr.length; i++) {
+            int index = r.nextInt(arr.length);
+            int temp = arr[i];
+            arr[i] = arr[index];
+            arr[index] = temp;
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            data[i / 4][i % 4] = arr[i];
+        }
 
 
+    }
+
+    private void initImage() {
+        for (int j = 0; j < 4; j++){
+            for (int i = 0; i < 4; i++) {
+                JLabel jl = new JLabel(
+                        new ImageIcon("D:\\Develop\\program\\jigsawgame\\image\\animal\\animal3\\" + data[j][i] + ".jpg")
+                );
+                jl.setBounds(105 * i, 105 * j, 105, 105);
+                this.getContentPane().add(jl);
+            }
+        }
+
+        //创建ImageIcon
+        //创建JLabel
+        //调整位置
+
+        //添加到JFrame
+//        this.add(jl1); // 无法居中
+
+    }
 
 
     private void initJMenuBar() {
@@ -56,5 +98,7 @@ public class GameJFrame extends JFrame {
         this.setLocationRelativeTo(null);
         //设置默认关闭模式
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        this.setLayout(null);
     }
 }
