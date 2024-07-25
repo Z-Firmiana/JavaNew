@@ -1,6 +1,6 @@
-package com.javastudy.demo;
+package com.javastudy.demo.ApiDemoRegex;
 
-public class ApiDemoRegex {
+public class ApiDemoRegex1 {
     public static void main(String[] args) {
         /*
         正则表达式验证QQ号是否正确
