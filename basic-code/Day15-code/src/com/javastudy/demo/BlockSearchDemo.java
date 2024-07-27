@@ -1,7 +1,5 @@
 package com.javastudy.demo;
 
-import java.util.ArrayList;
-
 public class BlockSearchDemo {
     public static void main(String[] args) {
         /*
